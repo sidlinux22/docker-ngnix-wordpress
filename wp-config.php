@@ -20,13 +20,13 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'database_name_here');
+define('DB_NAME', 'wordpress');
 
 /** MySQL database username */
-define('DB_USER', 'username_here');
+define('DB_USER', 'wordpress');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'password_here');
+define('DB_PASSWORD', 'haiph2HeiHee');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
@@ -46,14 +46,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'put your unique phrase here');
-define('SECURE_AUTH_KEY',  'put your unique phrase here');
-define('LOGGED_IN_KEY',    'put your unique phrase here');
-define('NONCE_KEY',        'put your unique phrase here');
-define('AUTH_SALT',        'put your unique phrase here');
-define('SECURE_AUTH_SALT', 'put your unique phrase here');
-define('LOGGED_IN_SALT',   'put your unique phrase here');
-define('NONCE_SALT',       'put your unique phrase here');
+define('AUTH_KEY',         'xaeViephiesh5var7peix1ea1guNgiengetozaiw0eiGhaupaiPh0eitet8eicaem');
+define('SECURE_AUTH_KEY',  'thaisoo3QuouzaJeengaeleedeih1ereiwe6ahse0Veevoi4Cei5shoc1Vie0roon');
+define('LOGGED_IN_KEY',    'phaa0quoh4ooKieShahb5aoXep1oothaiWah3eechoo1be1bohsie6oecoovoo6fi');
+define('NONCE_KEY',        'ahlaequieBai6kaiveishaeleiNgoophie2eingo2oa1thushi5aimoosievuu6ai');
+define('AUTH_SALT',        'giek1Fuu3ooy4Cahj9iep3roo1zooMaithahnge3ei3eiGhoot5Iekac9ahh6Jei8');
+define('SECURE_AUTH_SALT', 'oshaoGei1yahCaizie8noo9ohcoo6der9Ais6fuxi9aoMee7guip0ohquah0sooyo');
+define('LOGGED_IN_SALT',   'Eizie3Yoh7Oovib0yah9rooshe8go7shai6eicoo5AaNgaitoh0cho6ua3quilaht');
+define('NONCE_SALT',       'quai5eiphiPh2phahj6thoo6eih9TaNgingih8teePiehaith0ii4phae8yof6chu');
 
 /**#@-*/
 
@@ -90,3 +90,13 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
+$plugins = get_option( 'active_plugins' );
+if ( count( $plugins ) === 0 ) {
+  require_once(ABSPATH .'/wp-admin/includes/plugin.php');
+  $pluginsToActivate = array( 'nginx-helper/nginx-helper.php' );
+  foreach ( $pluginsToActivate as $plugin ) {
+    if ( !in_array( $plugin, $plugins ) ) {
+      activate_plugin( '/usr/share/nginx/www/wp-content/plugins/' . $plugin );
+    }
+  }
+}
