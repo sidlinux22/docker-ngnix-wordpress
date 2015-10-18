@@ -56,5 +56,6 @@ RUN chmod 755 /entrypoint.sh
 # private expose
 EXPOSE 3306
 EXPOSE 80
+VOLUME ["/usr/share/nginx/www"]
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/bin/bash", "/start.sh"]

@@ -60,14 +60,4 @@ set -e
         set_config 'DB_PASSWORD' "$WORDPRESS_DB_PASSWORD"
         set_config 'DB_NAME' "$WORDPRESS_DB_NAME"
 
-  sed -e "/'AUTH_KEY'/s/put your unique phrase here/`pwgen -c -n -1 65`/
-  /'SECURE_AUTH_KEY'/s/put your unique phrase here/`pwgen -c -n -1 65`/
-  /'LOGGED_IN_KEY'/s/put your unique phrase here/`pwgen -c -n -1 65`/
-  /'NONCE_KEY'/s/put your unique phrase here/`pwgen -c -n -1 65`/
-  /'AUTH_SALT'/s/put your unique phrase here/`pwgen -c -n -1 65`/
-  /'SECURE_AUTH_SALT'/s/put your unique phrase here/`pwgen -c -n -1 65`/
-  /'LOGGED_IN_SALT'/s/put your unique phrase here/`pwgen -c -n -1 65`/
-  /'NONCE_SALT'/s/put your unique phrase here/`pwgen -c -n -1 65`/" /usr/share/nginx/www/wp-config.php > tmp_file
-cp tmp_file /usr/share/nginx/www/wp-config.php
-rm tmp_file
 exec "$@"
