@@ -1,1 +1,1 @@
-# docker-ngnix-wordpress
+# docker-nginx-wordpress
